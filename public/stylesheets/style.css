@@ -6,3 +6,11 @@ body {
 a {
   color: #0698fa;
 }
+
+.navbar-brand {
+  background-image: url("../images/cover.png");
+}
+
+.nav-item {
+  font-size: 1.5rem;
+}
