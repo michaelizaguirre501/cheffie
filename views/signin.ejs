@@ -1,0 +1,13 @@
+<%-include('partials/header') -%>
+
+<div id="div-login-form">
+  <form action="/login" method="POST">
+    <label for="user">Email:</label>
+    <input type="text" name="user" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" />
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<%- include('partials/footer') -%>
