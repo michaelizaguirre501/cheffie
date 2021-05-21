@@ -17,7 +17,7 @@ router.get("/dashboard", function (req, res, next) {
   res.render("dashboard", { title: "Express" });
 });
 
-router.get("/signin", authController.getLogin);
-router.post("/signin", authController.postLogin);
-router.get("/signup", authController.getSignup);
-router.post("/signup", authController.postSignup);
+router.get("/signin", authController.getSignIn);
+router.post("/signin", authController.postSignIn);
+router.get("/signup", authController.getSignUp);
+router.post("/signup", authController.postSignUp);

@@ -2,16 +2,16 @@ const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
 
-exports.getLogin = (req, res) => {
+exports.getSignIn = (req, res) => {
   if (req.user) {
     return res.redirect("/");
   }
-  res.render("login", {
-    title: "Login",
+  res.render("signIn", {
+    title: "signIn",
   });
 };
 
-exports.postLogin = (req, res, next) => {
+exports.postSignIn = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -20,7 +20,7 @@ exports.postLogin = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("/");
+    return res.redirect("signIn");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -54,16 +54,16 @@ exports.logout = (req, res) => {
   });
 };
 
-exports.getSignup = (req, res) => {
+exports.getSignUp = (req, res) => {
   if (req.user) {
     return res.redirect("/");
   }
-  res.render("signup", {
+  res.render("signUp", {
     title: "Create Account",
   });
 };
 
-exports.postSignup = (req, res, next) => {
+exports.postSignUp = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -76,7 +76,7 @@ exports.postSignup = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("../signup");
+    return res.redirect("../signUp");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -86,6 +86,7 @@ exports.postSignup = (req, res, next) => {
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
+    isAdmin: req.body.isAdmin,
   });
 
   User.findOne(
@@ -98,7 +99,7 @@ exports.postSignup = (req, res, next) => {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
         });
-        return res.redirect("./signup");
+        return res.redirect("./signUp");
       }
       user.save((err) => {
         if (err) {
