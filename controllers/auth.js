@@ -34,7 +34,7 @@ exports.postSignIn = (req, res, next) => {
       req.flash("errors", info);
       return res.redirect("/");
     }
-    req.logIn(user, (err) => {
+    req.signIn(user, (err) => {
       if (err) {
         return next(err);
       }
@@ -105,7 +105,7 @@ exports.postSignUp = (req, res, next) => {
         if (err) {
           return next(err);
         }
-        req.logIn(user, (err) => {
+        req.signIn(user, (err) => {
           if (err) {
             return next(err);
           }

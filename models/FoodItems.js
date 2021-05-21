@@ -4,7 +4,7 @@
 //
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.Schema({
+const FoodItemSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -27,4 +27,4 @@ const PostSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("foodItem", FoodItemSchema);
