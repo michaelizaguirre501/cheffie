@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 //app.use("/orders", ordersRouter);
-app.use("/dashboard", foodItemsRouter);
+app.use("/createFoodItem", foodItemsRouter);
 
 //Sessions
 app.use(

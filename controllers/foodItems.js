@@ -16,10 +16,10 @@ module.exports = {
         name: req.body.name,
         desc: req.body.desc,
         ingredients: req.body.ingredients,
-        course: req.body.ingredients,
+        course: req.body.course,
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/");
     } catch (err) {
       console.log(err);
     }

@@ -14,7 +14,7 @@ const FoodItemSchema = new mongoose.Schema({
     required: true,
   },
   ingredients: {
-    type: Array,
+    type: String,
     required: true,
   },
   course: {

@@ -1,25 +1,12 @@
-<%- include('partials/footer') -%>
+<%- include('partials/header') -%>
 <div class="mt-5">
-  <h2>Add a Item</h2>
-  <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-    <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="name" name="name" />
-    </div>
-    <div class="mb-3">
-      <label for="caption" class="form-label">Caption</label>
-      <textarea class="form-control" id="desc" name="desc"></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="imgUpload" class="form-label">Image</label>
-      <input
-        type="text"
-        class="form-control"
-        id="ingredients"
-        name="ingredients"
-      />
-    </div>
-    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+  <h2>Add an Item</h2>
+  <form action="/createFoodItem" method="POST">
+    <input type="text" name="name" id="name" />
+    <input type="text" name="desc" id="desc" />
+    <input type="text" name="ingredients" id="ingredients" />
+    <input type="text" name="course" id="course" />
+    <button type="submit">Submit</button>
   </form>
 </div>
 <%- include('partials/footer') -%>

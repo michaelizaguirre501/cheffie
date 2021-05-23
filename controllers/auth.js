@@ -20,7 +20,7 @@ exports.postSignIn = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("signIn");
+    return res.redirect("/");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -76,7 +76,7 @@ exports.postSignUp = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("../signUp");
+    return res.redirect("/");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -96,7 +96,7 @@ exports.postSignUp = (req, res, next) => {
         return next(err);
       }
       if (existingUser) {
-        req.flash("errors", {
+        console.log("errors", {
           msg: "Account with that email address or username already exists.",
         });
         return res.redirect("./signUp");
